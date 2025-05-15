@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Détails du Contact</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 flex items-center justify-center min-h-screen">
+<div class="bg-white p-8 rounded-lg shadow-md w-full max-w-md">
+    <h1 class="text-2xl font-bold text-center mb-6">Détails du Contact</h1>
+    <div class="space-y-4">
+        <div>
+            <h2 class="text-lg font-semibold text-gray-700">Nom :</h2>
+            <p class="text-gray-600"><%= contact.firstName %> <%= contact.lastName %></p>
+        </div>
+        <div>
+            <h2 class="text-lg font-semibold text-gray-700">Société :</h2>
+            <p class="text-gray-600"><%= contact.company %></p>
+        </div>
+        <div>
+            <h2 class="text-lg font-semibold text-gray-700">Email :</h2>
+            <p class="text-gray-600"><%= contact.email %></p>
+        </div>
+        <div>
+            <h2 class="text-lg font-semibold text-gray-700">Adresse :</h2>
+            <p class="text-gray-600"><%= contact.adress %></p>
+        </div>
+        <div>
+            <h2 class="text-lg font-semibold text-gray-700">Téléphone :</h2>
+            <p class="text-gray-600"><%= contact.phone %></p>
+        </div>
+        <div>
+            <h2 class="text-lg font-semibold text-gray-700">Secteur d'activité :</h2>
+            <p class="text-gray-600"><%= contact.sector %></p>
+        </div>
+        <div>
+            <h2 class="text-lg font-semibold text-gray-700">Groupe :</h2>
+            <% if (contact.groups && contact.groups.length > 0) { %>
+                <ul class="text-gray-600">
+                    <% contact.groups.forEach(group => { %>
+                        <li><%= group.name %></li>
+                    <% }) %>
+                </ul>
+            <% } else { %>
+                <p class="text-gray-600">Aucun groupe associé</p>
+            <% } %>
+        </div>
+    </div>
+    <div class="mt-6 text-center">
+        <a href="/api/contact/list" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Retour à la liste</a>
+    </div>
+</div>
+</body>
+</html>
